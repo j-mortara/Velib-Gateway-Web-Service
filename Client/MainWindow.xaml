@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Velib Gateway Web Service" Height="350" Width="525">
     <Grid>
         <ListBox x:Name="listBoxContracts" HorizontalAlignment="Left" Height="201" Margin="10,10,0,0" VerticalAlignment="Top" Width="222"/>
         <ListBox x:Name="listBoxStations" HorizontalAlignment="Left" Height="201" Margin="281,10,0,0" VerticalAlignment="Top" Width="222"/>
+        <Button x:Name="selectButton" Content="Select contract" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="98" Click="selectButton_Click"/>
+        <Button x:Name="selectStationButton" Content="Select station" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="281,231,0,0" Click="selectStationButton_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,282,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="497" FontSize="16"/>
 
     </Grid>
 </Window>
