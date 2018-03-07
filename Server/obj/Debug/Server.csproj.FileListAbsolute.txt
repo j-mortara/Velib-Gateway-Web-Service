@@ -1,7 +1,0 @@
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\bin\Server.dll.config
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\bin\Server.dll
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\bin\Server.pdb
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\obj\Debug\Server.dll
-C:\Users\user\Documents\SI4\Tigli\Velib-Gateway-Web-Service\Server\obj\Debug\Server.pdb

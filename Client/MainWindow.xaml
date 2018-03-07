@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <ListBox x:Name="listBoxContracts" HorizontalAlignment="Left" Height="201" Margin="10,10,0,0" VerticalAlignment="Top" Width="222"/>
+        <ListBox x:Name="listBoxStations" HorizontalAlignment="Left" Height="201" Margin="281,10,0,0" VerticalAlignment="Top" Width="222"/>
+
     </Grid>
 </Window>

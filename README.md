@@ -6,7 +6,7 @@
 
 This project consists of two parts :
 
-- An **Intermediate Web Server** (IWS) (contained in the `Server` directory) exposing a WS-SOAP API to access to the Velib Web Service provided by [**JCDecaux**](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted).
+- An **Intermediate Web Server** (IWS) (contained in the `Server` directory) exposing a WS-SOAP API to access the Velib Web Service provided by [**JCDecaux**](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted).
 - A **GUI client** (contained in the `Client` directory) connecting to the IWS to fetch information coming from the **JCDecaux** API.
 
 ## Extensions
@@ -14,5 +14,5 @@ This project consists of two parts :
 ### Development
 
 - [X] **GUI client**
-- [ ] **Asynchronous accesses to WS**
-- [ ] **Added cache to IWS**
+- [ ] Asynchronous accesses to WS
+- [ ] Added cache to IWS
