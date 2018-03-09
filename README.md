@@ -14,5 +14,5 @@ This project consists of two parts :
 ### Development
 
 - [X] **GUI client**
-- [ ] ~~Asynchronous accesses to WS~~
-- [ ] ~~Added cache to IWS~~
+- [ ] Asynchronous accesses to WS
+- [X] Added cache to IWS
