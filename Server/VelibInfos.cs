@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using IniFile;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +10,7 @@ namespace Server
 {
     public class VelibInfos : IVelibInfos
     {
-        private static string API_KEY = "340822148337f9e2d1fa9c0b9952fc4962bcfaca";
+        private static string API_KEY = Server.Properties.Resources.api_key;
 
         public int GetAvailableBikes(string contract, string stationName)
         {
@@ -19,6 +21,7 @@ namespace Server
 
         public List<string> GetContracts()
         {
+            Console.Write(Directory.GetCurrentDirectory());
             return GetArray("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + API_KEY)
                 .Children()
                 .Select(child => (string)child["name"])
