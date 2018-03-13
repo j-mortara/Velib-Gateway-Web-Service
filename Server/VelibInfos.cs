@@ -1,10 +1,10 @@
-﻿using IniFile;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace Server
 {
@@ -12,38 +12,37 @@ namespace Server
     {
         private static string API_KEY = Server.Properties.Resources.api_key;
 
-        public int GetAvailableBikes(string contract, string stationName)
+        public async Task<int> GetAvailableBikes(string contract, string stationName)
         {
-            JArray stationsArray = GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY);
+            JArray stationsArray = await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY);
             JObject station = (JObject)stationsArray.Children().Where(child => ((string)child["name"]).Contains(stationName)).First();
             return (int)station["available_bikes"];
         }
 
-        public List<string> GetContracts()
+        public async Task<List<string>> GetContracts()
         {
-            Console.Write(Directory.GetCurrentDirectory());
-            return GetArray("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + API_KEY)
+            return (await GetArray("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + API_KEY))
                 .Children()
                 .Select(child => (string)child["name"])
                 .ToList();
         }
 
-        public List<string> GetStations(string contract)
+        public async Task<List<string>> GetStations(string contract)
         {
-            return GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY)
+            return (await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY))
                 .Children()
                 .Select(child => (string)child["name"])
                 .ToList();
         }
 
-        private JArray GetArray(string requestUrl)
+        private async Task<JArray> GetArray(string requestUrl)
         {
             // Create a request for the URL. 
             WebRequest request = WebRequest.Create(requestUrl);
             // If required by the server, set the credentials.
             // request.Credentials = CredentialCache.DefaultCredentials;
             // Get the response.
-            WebResponse response = request.GetResponse();
+            WebResponse response = await request.GetResponseAsync();
             // Display the status.
             // Console.WriteLine(((HttpWebResponse)response).StatusDescription);
             // Get the stream containing content returned by the server.

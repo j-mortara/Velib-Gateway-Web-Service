@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace Server
 {
@@ -7,13 +8,13 @@ namespace Server
     public interface IVelibInfos
     {
         [OperationContract]
-        int GetAvailableBikes(string contract, string stationName);
+        Task<int> GetAvailableBikes(string contract, string stationName);
 
         [OperationContract]
-        List<string> GetContracts();
+        Task<List<string>> GetContracts();
 
         [OperationContract]
-        List<string> GetStations(string contract);
+        Task<List<string>> GetStations(string contract);
 
     }
 }

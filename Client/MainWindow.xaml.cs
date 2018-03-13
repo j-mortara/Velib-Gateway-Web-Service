@@ -19,7 +19,7 @@ namespace Client
         {
             InitializeComponent();
             velibInfos = new VelibInfosClient();
-            listBoxContracts.ItemsSource = velibInfos.GetContracts();
+            GetContracts();
         }
 
         private void selectButton_Click(object sender, RoutedEventArgs e)
@@ -27,7 +27,7 @@ namespace Client
             if (listBoxContracts.SelectedItem != null)
             {
                 contractName = listBoxContracts.SelectedItem.ToString();
-                listBoxStations.ItemsSource = velibInfos.GetStations(contractName);
+                GetStations();
             }
         }
 
@@ -53,6 +53,16 @@ namespace Client
                 // Indeed, if the element was not already present in the cache, it has been added in the previous condition.
                 textBox.Text = "Number of available bikes : " + stations.Find(s => s.Equals(selectedStation)).nbAvailableBikes;
             }
+        }
+
+        private async void GetContracts()
+        {
+            listBoxContracts.ItemsSource = await velibInfos.GetContractsAsync();
+        }
+
+        private async void GetStations()
+        {
+            listBoxStations.ItemsSource = await velibInfos.GetStationsAsync(contractName);
         }
     }
 }

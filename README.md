@@ -26,5 +26,5 @@ private static string API_KEY = Server.Properties.Resources.api_key;
 ### Development
 
 - [X] **GUI client**
-- [ ] Asynchronous accesses to WS
+- [X] **Asynchronous accesses to WS**
 - [X] **Added cache to IWS**
