@@ -9,6 +9,15 @@ This project consists of two parts :
 - An **Intermediate Web Server** (IWS) (contained in the `Server` directory) exposing a WS-SOAP API to access the Velib Web Service provided by [**JCDecaux**](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted).
 - A **GUI client** (contained in the `Client` directory) connecting to the IWS to fetch information coming from the **JCDecaux** API.
 
+## Building the project
+
+- Include your API key in the project (see the [next section](https://github.com/trinity357/Velib-Gateway-Web-Service#using-your-own-api-key) for detailed procedure)
+- Run Visual Studio **in Administrator Mode**. Otherwise, you won't have access to the port where the service is hosted.
+- Open the `VelibGateway.sln` solution file contained in the `Client` directory.
+- Add the **Newtonsoft.Json** NuGet package to the `Server` project.
+- Set the `Client` project as StartUp project.
+- Run the solution.
+
 ## Using your own API key
 
 ### Become a JCDecaux developer
@@ -31,7 +40,7 @@ private static string API_KEY = Server.Properties.Resources.api_key;
 
 #### Note concerning the caching extension :
 
-The `Station` object has a method `isInformationOutdated()` which returns a `bool` indicating if the value cached is too old to be reliable.  
+The `Station` object has a method `isInformationOutdated()` which returns a `bool` indicating if the cached value is too old to be reliable.  
 For debugging purpose, this value has been set to 5 seconds but can be easily modified, as it is a field of the `Station` class.
 
 ```cs

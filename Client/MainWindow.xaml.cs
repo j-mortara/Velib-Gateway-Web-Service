@@ -1,13 +1,11 @@
 ﻿using Client.VelibServiceReference;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Client
 {
-    
+
     public partial class MainWindow : Window
     {
         // List containing the previously queried stations (i.e. the cache)
