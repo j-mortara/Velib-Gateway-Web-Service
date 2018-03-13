@@ -17,8 +17,8 @@ namespace Client
         public int nbAvailableBikes;
         private DateTime timestamp;
 
-        // Number of seconds representing the maximum time between two requests without 
-        private static readonly int dataValidateTime = 5;
+        // Number of seconds representing the timelapse we consider data as being up-to-date
+        private static readonly int dataUpToDateTimelapse = 5;
 
         public Station(string contract, string name)
         {
@@ -31,7 +31,7 @@ namespace Client
         public bool IsInformationOutdated()
         {
             TimeSpan ts = DateTime.Now - timestamp;
-            return ts.TotalSeconds > dataValidateTime;
+            return ts.TotalSeconds > dataUpToDateTimelapse;
         }
 
         // Two stations are equals if they have the same name and are attached to the same contract.

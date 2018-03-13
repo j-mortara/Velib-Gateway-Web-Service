@@ -1,6 +1,7 @@
 ﻿using Client.VelibServiceReference;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -42,12 +43,16 @@ namespace Client
                 // Otherwise, there is no need to fetch the information. This limits the number of calls to the API.
                 if (stationInList == null || stationInList.IsInformationOutdated())
                 {
+                    Debug.WriteLine(stationInList == null ? "Station never queried, adding to cache." : "Outdated information, updating information.");
                     // Gets the actual value from the server
                     selectedStation.nbAvailableBikes = velibInfos.GetAvailableBikes(contractName, stationName);
                     // Removes the already present object representing the station if it exists in the cache.
                     stations.Remove(stationInList);
                     // Adds the newly created object.
                     stations.Add(selectedStation);
+                } else
+                {
+                    Debug.WriteLine("Getting value from cache.");
                 }
                 // stations.Find() can't be null, as there is necessarily an item matching the condition in the cache.
                 // Indeed, if the element was not already present in the cache, it has been added in the previous condition.
