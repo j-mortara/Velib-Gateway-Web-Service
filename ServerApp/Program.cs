@@ -13,11 +13,20 @@ namespace ServerApp
         static void Main(string[] args)
         {
             var serviceHost = new ServiceHost(typeof(VelibInfos));
-            Console.WriteLine("J'ouvre");
+            Console.WriteLine("Launchig service");
             serviceHost.Open();
-            Console.ReadLine();
-            Console.WriteLine("Je ferme");
-            serviceHost.Close();
+            Console.WriteLine("Service running");
+            while (true)
+            {
+                if (Console.ReadLine().Contains("exit"))
+                {
+                    Console.WriteLine("Closing service");
+                    serviceHost.Close();
+                    break;
+                }
+            }
+                
+
         }
     }
 }

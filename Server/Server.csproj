@@ -67,6 +67,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Station.cs" />
     <Compile Include="VelibInfos.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@ This project consists of three parts :
 - Open the `VelibGateway.sln` solution file contained in the `Client` directory.
 - Add the **Newtonsoft.Json** NuGet package to the `Server` project.
 - Set the `Client` project as StartUp project.
-- Run `ServerApp\bin\Debug\ServerApp.exe` **in Administrator Mode**
+- Run `ServerApp\bin\Debug\ServerApp.exe` **in Administrator Mode**. To exit the program, simply type `exit` and the server will close.
 - Run the solution.
 
 ## Using your own API key
@@ -48,7 +48,7 @@ private static string API_KEY = Server.Properties.Resources.api_key;
 
 ### Monitoring
 
-- [ ] Second WS to monitor the fetch and compute information from the WS
+- [ ] Second WS to monitor fetch and compute information from the WS
 
 
 #### Note concerning the caching extension :
@@ -61,7 +61,7 @@ For debugging purpose, this value has been set to 5 seconds but can be easily mo
 private static readonly int dataUpToDateTimelapse = 5;
 ```
 
-At runtime, when a station is selected, a message is logged in the `Debug` trace to show the cache behaviour :
+At runtime, when a station is selected, a message is logged in the console to show the cache behaviour :
 
 - `Station never queried, adding to cache.` : This is the first time we query information about this station. A new `Station` object is added to the cache.
 - `Outdated information, updating information.` : Information about this station is already present in the cache, but it needs to be updated. A new `Station` object replacing the old one is added to the cache.

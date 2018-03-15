@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,11 +13,32 @@ namespace Server
     {
         private static string API_KEY = Server.Properties.Resources.api_key;
 
+        // List containing the previously queried stations (i.e. the cache)
+        private static List<Station> stations = new List<Station>();
+
         public async Task<int> GetAvailableBikes(string contract, string stationName)
         {
-            JArray stationsArray = await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY);
-            JObject station = (JObject)stationsArray.Children().Where(child => ((string)child["name"]).Contains(stationName)).First();
-            return (int)station["available_bikes"];
+            Station selectedStation = new Station(contract, stationName);
+            Station stationInList = stations.Find(s => s.Equals(selectedStation));
+            // If the station has never been queried or its information is outdated, an update is needed.
+            // Otherwise, there is no need to fetch the information. This limits the number of calls to the API.
+            if (stationInList == null || stationInList.IsInformationOutdated())
+            {
+                Console.WriteLine(stationInList == null ? "Station never queried, adding to cache." : "Outdated information, updating information.");
+                // Gets the actual value from the server
+                JArray stationsArray = await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY);
+                JObject station = (JObject)stationsArray.Children().Where(child => ((string)child["name"]).Contains(stationName)).First();
+                selectedStation.nbAvailableBikes = (int)station["available_bikes"];
+                // Removes the already present object representing the station if it exists in the cache.
+                stations.Remove(stationInList);
+                // Adds the newly created object.
+                stations.Add(selectedStation);
+            }
+            else
+            {
+                Console.WriteLine("Getting value from cache.");
+            }
+            return stations.Find(s => s.Equals(selectedStation)).nbAvailableBikes;
         }
 
         public async Task<List<string>> GetContracts()
