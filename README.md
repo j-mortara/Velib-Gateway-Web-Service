@@ -4,9 +4,10 @@
 
 ## Project Structure
 
-This project consists of two parts :
+This project consists of three parts :
 
 - An **Intermediate Web Server** (IWS) (contained in the `Server` directory) exposing a WS-SOAP API to access the Velib Web Service provided by [**JCDecaux**](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted).
+- A **console application** (contained in the `ServerApp` directory) launching the IWS.
 - A **GUI client** (contained in the `Client` directory) connecting to the IWS to fetch information coming from the **JCDecaux** API.
 
 ## Building the project
@@ -16,6 +17,7 @@ This project consists of two parts :
 - Open the `VelibGateway.sln` solution file contained in the `Client` directory.
 - Add the **Newtonsoft.Json** NuGet package to the `Server` project.
 - Set the `Client` project as StartUp project.
+- Run `ServerApp\bin\Debug\ServerApp.exe` **in Administrator Mode**
 - Run the solution.
 
 ## Using your own API key
