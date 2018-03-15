@@ -11,7 +11,7 @@ This project consists of two parts :
 
 ## Building the project
 
-- Include your API key in the project (see the [next section](https://github.com/trinity357/Velib-Gateway-Web-Service#using-your-own-api-key) for detailed procedure)
+- Include your API key in the project (see the [next section](https://github.com/trinity357/Velib-Gateway-Web-Service#using-your-own-api-key) for detailed procedure).
 - Run Visual Studio **in Administrator Mode**. Otherwise, you won't have access to the port where the service is hosted.
 - Open the `VelibGateway.sln` solution file contained in the `Client` directory.
 - Add the **Newtonsoft.Json** NuGet package to the `Server` project.
@@ -37,6 +37,17 @@ private static string API_KEY = Server.Properties.Resources.api_key;
 - [X] **GUI client**
 - [X] **Asynchronous accesses to WS**
 - [X] **Added cache to IWS**
+
+
+### Deployment
+
+- [ ] Deployment on Docker
+
+
+### Monitoring
+
+- [ ] Second WS to monitor the fetch and compute information from the WS
+
 
 #### Note concerning the caching extension :
 

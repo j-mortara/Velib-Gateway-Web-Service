@@ -20,18 +20,22 @@ namespace Server
 
         public async Task<List<string>> GetContracts()
         {
-            return (await GetArray("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + API_KEY))
+            var contracts = (await GetArray("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + API_KEY))
                 .Children()
                 .Select(child => (string)child["name"])
                 .ToList();
+            contracts.Sort();
+            return contracts;
         }
 
         public async Task<List<string>> GetStations(string contract)
         {
-            return (await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY))
+            var stations = (await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY))
                 .Children()
                 .Select(child => (string)child["name"])
                 .ToList();
+            stations.Sort();
+            return stations;
         }
 
         private async Task<JArray> GetArray(string requestUrl)
