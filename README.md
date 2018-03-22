@@ -4,11 +4,12 @@
 
 ## Project Structure
 
-This project consists of three parts :
+This project consists of four parts :
 
 - An **Intermediate Web Server** (IWS) (contained in the `Server` directory) exposing a WS-SOAP API to access the Velib Web Service provided by [**JCDecaux**](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted).
 - A **console application** (contained in the `ServerApp` directory) launching the IWS.
-- A **GUI client** (contained in the `Client` directory) connecting to the IWS to fetch information coming from the **JCDecaux** API.
+- A **console client** (contained in the `ConsoleClient` directory) connecting to the IWS to fetch information coming from the **JCDecaux** API
+- A **GUI client** (contained in the `Client` directory), being the GUI version of the console client.
 
 ## Building the project
 
