@@ -16,13 +16,14 @@ namespace Server
         // List containing the previously queried stations (i.e. the cache)
         private static List<Station> stations = new List<Station>();
 
-        public async Task<int> GetAvailableBikes(string contract, string stationName)
+        public async Task<int> GetAvailableBikes(string contract, string stationName, int cacheDuration)
         {
+            Console.WriteLine("Fetching available bikes");
             Station selectedStation = new Station(contract, stationName);
             Station stationInList = stations.Find(s => s.Equals(selectedStation));
             // If the station has never been queried or its information is outdated, an update is needed.
             // Otherwise, there is no need to fetch the information. This limits the number of calls to the API.
-            if (stationInList == null || stationInList.IsInformationOutdated())
+            if (stationInList == null || (DateTime.Now - stationInList.timestamp).TotalSeconds > cacheDuration)
             {
                 Console.WriteLine(stationInList == null ? "Station never queried, adding to cache." : "Outdated information, updating information.");
                 // Gets the actual value from the server
@@ -43,6 +44,7 @@ namespace Server
 
         public async Task<List<string>> GetContracts()
         {
+            Console.WriteLine("Fetching contracts");
             var contracts = (await GetArray("https://api.jcdecaux.com/vls/v1/contracts?apiKey=" + API_KEY))
                 .Children()
                 .Select(child => (string)child["name"])
@@ -53,6 +55,7 @@ namespace Server
 
         public async Task<List<string>> GetStations(string contract)
         {
+            Console.WriteLine("Fetching stations");
             var stations = (await GetArray("https://api.jcdecaux.com/vls/v1/stations?contract=" + contract + "&apiKey=" + API_KEY))
                 .Children()
                 .Select(child => (string)child["name"])

@@ -6,6 +6,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="contract" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="stationName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cacheDuration" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

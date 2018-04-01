@@ -8,7 +8,7 @@ namespace Server
     public interface IVelibInfos
     {
         [OperationContract]
-        Task<int> GetAvailableBikes(string contract, string stationName);
+        Task<int> GetAvailableBikes(string contract, string stationName, int cacheDuration);
 
         [OperationContract]
         Task<List<string>> GetContracts();

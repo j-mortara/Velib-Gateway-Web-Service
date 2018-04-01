@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Velib Gateway Web Service" Height="350" Width="525">
+        Title="Velib Gateway Web Service" Height="392" Width="525">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="229*"/>
             <ColumnDefinition Width="28*"/>
             <ColumnDefinition Width="260*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBoxContracts" Height="201" Margin="10,10,25,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ListBox x:Name="listBoxStations" Margin="25,10,13,0" Grid.Column="2" Height="201" VerticalAlignment="Top"/>
-        <Button x:Name="selectButton" Content="Select contract" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="98" Click="selectButton_Click"/>
-        <Button x:Name="selectStationButton" Content="Select station" VerticalAlignment="Top" Margin="0,231,147,0" Click="selectStationButton_Click" Grid.Column="2" HorizontalAlignment="Right" Width="88"/>
+        <ListBox x:Name="listBoxContracts" Height="202" Margin="10,56,25,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="listBoxStations" Margin="25,56,13,0" Grid.Column="2" Height="202" VerticalAlignment="Top"/>
+        <Button x:Name="selectButton" Content="Select contract" HorizontalAlignment="Left" Margin="10,278,0,0" VerticalAlignment="Top" Width="98" Click="selectButton_Click"/>
+        <Button x:Name="selectStationButton" Content="Select station" VerticalAlignment="Top" Margin="0,278,147,0" Click="selectStationButton_Click" Grid.Column="2" HorizontalAlignment="Right" Width="88"/>
         <TextBox x:Name="textBox" Margin="10,0,10,14" TextWrapping="NoWrap" FontSize="16" Grid.ColumnSpan="3" Height="23" VerticalAlignment="Bottom"/>
+        <Label x:Name="label" Content="Cache duration (s) :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="cacheBox" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="131,14,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

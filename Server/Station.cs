@@ -12,7 +12,7 @@ namespace Server
         private string contract;
         private string name;
         public int nbAvailableBikes;
-        private DateTime timestamp;
+        public DateTime timestamp;
 
         // Number of seconds representing the timelapse we consider data as being up-to-date
         private static readonly int dataUpToDateTimelapse = 5;

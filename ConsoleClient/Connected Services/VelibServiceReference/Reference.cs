@@ -16,10 +16,10 @@ namespace ConsoleClient.VelibServiceReference {
     public interface IVelibInfos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibInfos/GetAvailableBikes", ReplyAction="http://tempuri.org/IVelibInfos/GetAvailableBikesResponse")]
-        int GetAvailableBikes(string contract, string stationName, int timelapse);
+        int GetAvailableBikes(string contract, string stationName, int cacheDuration);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibInfos/GetAvailableBikes", ReplyAction="http://tempuri.org/IVelibInfos/GetAvailableBikesResponse")]
-        System.Threading.Tasks.Task<int> GetAvailableBikesAsync(string contract, string stationName);
+        System.Threading.Tasks.Task<int> GetAvailableBikesAsync(string contract, string stationName, int cacheDuration);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibInfos/GetContracts", ReplyAction="http://tempuri.org/IVelibInfos/GetContractsResponse")]
         string[] GetContracts();
@@ -61,12 +61,12 @@ namespace ConsoleClient.VelibServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public int GetAvailableBikes(string contract, string stationName, int timelapse) {
-            return base.Channel.GetAvailableBikes(contract, stationName, timelapse);
+        public int GetAvailableBikes(string contract, string stationName, int cacheDuration) {
+            return base.Channel.GetAvailableBikes(contract, stationName, cacheDuration);
         }
         
-        public System.Threading.Tasks.Task<int> GetAvailableBikesAsync(string contract, string stationName) {
-            return base.Channel.GetAvailableBikesAsync(contract, stationName);
+        public System.Threading.Tasks.Task<int> GetAvailableBikesAsync(string contract, string stationName, int cacheDuration) {
+            return base.Channel.GetAvailableBikesAsync(contract, stationName, cacheDuration);
         }
         
         public string[] GetContracts() {
