@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -11,7 +10,7 @@ namespace Server
 {
     public class VelibInfos : IVelibInfos
     {
-        private static string API_KEY = Server.Properties.Resources.api_key;
+        private static string API_KEY = Properties.Resources.api_key;
 
         // List containing the previously queried stations (i.e. the cache)
         private static List<Station> stations = new List<Station>();

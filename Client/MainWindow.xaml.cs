@@ -1,7 +1,5 @@
 ﻿using System;
 using Client.VelibServiceReference;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows;
 
 namespace Client
@@ -48,9 +46,9 @@ namespace Client
 
         private async void GetNumberOfBikes(string contract, string station)
         {
-            if (cacheBox.Text != "")
+            if (Int32.TryParse(cacheBox.Text, out var c))
             {
-                textBox.Text = "Number of available bikes : " + await velibInfos.GetAvailableBikesAsync(contract, station, Int32.Parse(cacheBox.Text));
+                textBox.Text = "Number of available bikes : " + await velibInfos.GetAvailableBikesAsync(contract, station, c);
             }
 
         }

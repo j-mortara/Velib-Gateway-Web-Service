@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel.Configuration;
-using System.Text;
-using System.Threading.Tasks;
 using ConsoleClient.VelibServiceReference;
 
 namespace ConsoleClient
@@ -25,7 +22,7 @@ namespace ConsoleClient
                 {"list-stations-async", l => ListStationsAsync(l[1])},
                 {"get-station", l => GetStationInformation(l[1], l[2], cacheDuration)},
                 {"get-station-async", l => GetStationInformationAsync(l[1], l[2], cacheDuration)},
-                {"set-cache-duration", l => cacheDuration = Convert.ToInt32(l[1])},
+                {"set-cache-duration", l => SetCacheDuration(l[1])},
                 {"print-cache-duration", _ => Console.WriteLine(cacheDuration)}
             };
 
@@ -79,12 +76,26 @@ namespace ConsoleClient
 
         private static void GetStationInformation(string contract, string station, int timelapse)
         {
-            Console.WriteLine("Nb of available bikes : " + velibInfosClient.GetAvailableBikes(contract, station, timelapse));
+            Console.WriteLine("Nb of available bikes : " +
+                              velibInfosClient.GetAvailableBikes(contract, station, timelapse));
         }
 
         private static async void GetStationInformationAsync(string contract, string station, int timelapse)
         {
-            Console.WriteLine("Nb of available bikes : " + await velibInfosClient.GetAvailableBikesAsync(contract, station, timelapse));
+            Console.WriteLine("Nb of available bikes : " +
+                              await velibInfosClient.GetAvailableBikesAsync(contract, station, timelapse));
+        }
+
+        private static void SetCacheDuration(string inputValue)
+        {
+            if (Int32.TryParse(inputValue, out var v))
+            {
+                cacheDuration = v;
+            }
+            else
+            {
+                Console.WriteLine("Not a valid value : " + inputValue);
+            }
         }
     }
 }

@@ -13,22 +13,13 @@ namespace Client
         private string name;
         public int nbAvailableBikes;
         public DateTime timestamp;
-
-        // Number of seconds representing the timelapse we consider data as being up-to-date
-        private static readonly int dataUpToDateTimelapse = 5;
-
+        
         public Station(string contract, string name)
         {
             this.contract = contract;
             this.name = name;
             timestamp = DateTime.Now;
             nbAvailableBikes = 0;
-        }
-
-        public bool IsInformationOutdated()
-        {
-            TimeSpan ts = DateTime.Now - timestamp;
-            return ts.TotalSeconds > dataUpToDateTimelapse;
         }
 
         // Two stations are equals if they have the same name and are attached to the same contract.

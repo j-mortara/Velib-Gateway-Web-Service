@@ -103,10 +103,31 @@ public async Task<List<string>> GetContracts()
 listBoxContracts.ItemsSource = await velibInfos.GetContractsAsync();
 ```
 
+The impact of asynchronous calls can be seen using the console client. Using synchnous calls, the client waits for the server's answer before allowing you to type another command. However, using asynchrounous calls, you can type another command before having an answer from the server. This results in a difference of output in the console.
+
+##### Example :
+
+- Synchonous call 
+```
+> get-station Nancy 00029
+Nb of available bikes : 18
+> █
+```
+
+- Asynchonous call 
+```
+> get-station-async Nancy 00029
+> Nb of available bikes : 18
+█
+```
+
 - #### Concerning the caching extension :
 
-The `Station` object has a method `isInformationOutdated()` which returns a `bool` indicating if the cached value is too old to be reliable.  
-For debugging purpose, this value has been set to 5 seconds but can be easily modified, as it is a field of the `Station` class.
+In both clients, you can set the cache duration you want.
+- In the GUI client, a box lets you input the number of seconds
+- In the console client, you can use the `print-cache-duration` command to print the actual value, and `set-cache-duration` to set it.
+
+For debugging purpose, the default value is set to `5` seconds.
 
 ```cs
 // Number of seconds representing the timelapse we consider data as being up-to-date
