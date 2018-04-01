@@ -129,11 +129,6 @@ In both clients, you can set the cache duration you want.
 
 For debugging purpose, the default value is set to `5` seconds.
 
-```cs
-// Number of seconds representing the timelapse we consider data as being up-to-date
-private static readonly int dataUpToDateTimelapse = 5;
-```
-
 At runtime, when a station is selected, a message is logged in the console to show the cache behaviour :
 
 - `Station never queried, adding to cache.` : This is the first time we query information about this station. A new `Station` object is added to the cache.
