@@ -17,7 +17,7 @@ This project consists of four parts :
 - Run Visual Studio **in Administrator Mode**. Otherwise, you won't have access to the port where the service is hosted.
 - Open the `VelibGateway.sln` solution file contained in the `Client` directory.
 - Add the **Newtonsoft.Json** NuGet package to the `Server` project.
-- Set the `Client` project as StartUp project.
+- Set the `Client` project as StartUp project to launch the GUI client, `ConsoleClient` to launch the console client.
 - Run `ServerApp\bin\Debug\ServerApp.exe` **in Administrator Mode**. To exit the program, simply type `exit` and the server will close.
 - Run the solution.
 
@@ -30,7 +30,7 @@ In order to use the **JCDecaux** API, you need to have an API key delivered afte
 You then need to create an `api_key.txt` file in the `Server` directory containing only your key. The server will fetch the content of the file as a resource :
 
 ```cs
-private static string API_KEY = Server.Properties.Resources.api_key;
+private static string API_KEY = Properties.Resources.api_key;
 ```
 
 ## Extensions
@@ -127,7 +127,7 @@ In both clients, you can set the cache duration you want.
 - In the GUI client, a box lets you input the number of seconds
 - In the console client, you can use the `print-cache-duration` command to print the actual value, and `set-cache-duration` to set it.
 
-For debugging purpose, the default value is set to `5` seconds.
+The default value is `5` seconds.
 
 At runtime, when a station is selected, a message is logged in the console to show the cache behaviour :
 
