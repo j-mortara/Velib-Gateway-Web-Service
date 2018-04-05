@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using EventsLib;
 
 namespace Server
 {
@@ -19,6 +20,7 @@ namespace Server
         {
             Console.WriteLine("Fetching available bikes");
             Station selectedStation = new Station(contract, stationName);
+            VelibService.StationChanged(selectedStation);
             Station stationInList = stations.Find(s => s.Equals(selectedStation));
             // If the station has never been queried or its information is outdated, an update is needed.
             // Otherwise, there is no need to fetch the information. This limits the number of calls to the API.

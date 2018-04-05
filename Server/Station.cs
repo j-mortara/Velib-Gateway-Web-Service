@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Server
 {
     // Class representing a station.
     // Only the contract (i.e. the city where the station is located) and the name of the station are represented
     // in this class, as those two information are enough to identify a station.
-    class Station : IEquatable<Station>
+    [DataContract]
+    public class Station
     {
-
-        private string contract;
-        private string name;
-        public int nbAvailableBikes;
+        [DataMember] private string contract;
+        [DataMember] private string name;
+        [DataMember] public int nbAvailableBikes;
         public DateTime timestamp;
 
         // Number of seconds representing the timelapse we consider data as being up-to-date
@@ -31,27 +32,26 @@ namespace Server
             return ts.TotalSeconds > dataUpToDateTimelapse;
         }
 
-        // Two stations are equals if they have the same name and are attached to the same contract.
-        // Indeed, there can't be two stations with the same name in the same city.
-        public override bool Equals(object obj)
+        protected bool Equals(Station other)
         {
-            return Equals(obj as Station);
+            return string.Equals(contract, other.contract) && string.Equals(name, other.name);
         }
 
-        public bool Equals(Station other)
+        public override bool Equals(object obj)
         {
-            return other != null &&
-                   contract == other.contract &&
-                   name == other.name;
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Station) obj);
         }
 
         public override int GetHashCode()
         {
-            var hashCode = 1971805048;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(contract);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
-            return hashCode;
+            unchecked
+            {
+                return ((contract != null ? contract.GetHashCode() : 0) * 397) ^
+                       (name != null ? name.GetHashCode() : 0);
+            }
         }
-
     }
 }
