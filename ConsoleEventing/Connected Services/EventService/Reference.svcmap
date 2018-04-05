@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd9c4ffc-9c6f-4789-b98c-cbc4c324f5cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Event" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VelibService.wsdl" MetadataType="Wsdl" ID="9a609d43-3641-4a8e-82c5-f984290565bb" SourceId="1" SourceUrl="http://localhost:8733/Event?wsdl" />
+    <MetadataFile FileName="Event.xsd" MetadataType="Schema" ID="92984b5f-d828-457f-8012-6821accd80f6" SourceId="1" SourceUrl="http://localhost:8733/Event?xsd=xsd1" />
+    <MetadataFile FileName="Event.disco" MetadataType="Disco" ID="69842160-473e-4776-8568-da1e4ff20571" SourceId="1" SourceUrl="http://localhost:8733/Event?disco" />
+    <MetadataFile FileName="Event1.xsd" MetadataType="Schema" ID="a687cb53-84ae-46a9-911e-99e2d9f24791" SourceId="1" SourceUrl="http://localhost:8733/Event?xsd=xsd2" />
+    <MetadataFile FileName="Event2.xsd" MetadataType="Schema" ID="57ef2aa8-7175-4090-94bb-a5c845f3d37e" SourceId="1" SourceUrl="http://localhost:8733/Event?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
