@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\EventService\Reference.cs">
+    <Compile Include="Connected Services\Event\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -55,34 +55,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\EventService\Event.xsd">
+    <None Include="Connected Services\Event\Event.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EventService\Event1.xsd">
+    <None Include="Connected Services\Event\Event1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EventService\Event2.xsd">
+    <None Include="Connected Services\Event\Event2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EventService\VelibService.wsdl" />
+    <None Include="Connected Services\Event\VelibService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\EventService\" />
+    <WCFMetadataStorage Include="Connected Services\Event\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EventService\Event.disco" />
+    <None Include="Connected Services\Event\Event.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EventService\configuration91.svcinfo" />
+    <None Include="Connected Services\Event\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EventService\configuration.svcinfo" />
+    <None Include="Connected Services\Event\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\EventService\Reference.svcmap">
+    <None Include="Connected Services\Event\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

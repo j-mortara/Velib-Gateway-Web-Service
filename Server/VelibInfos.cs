@@ -11,7 +11,7 @@ namespace Server
 {
     public class VelibInfos : IVelibInfos
     {
-        private static string API_KEY = Properties.Resources.api_key;
+        public static string API_KEY = Properties.Resources.api_key;
 
         // List containing the previously queried stations (i.e. the cache)
         private static List<Station> stations = new List<Station>();
@@ -20,7 +20,6 @@ namespace Server
         {
             Console.WriteLine("Fetching available bikes");
             Station selectedStation = new Station(contract, stationName);
-            VelibService.StationChanged(selectedStation);
             Station stationInList = stations.Find(s => s.Equals(selectedStation));
             // If the station has never been queried or its information is outdated, an update is needed.
             // Otherwise, there is no need to fetch the information. This limits the number of calls to the API.

@@ -6,6 +6,6 @@ namespace EventsLib
     public interface IVelibService
     {
         [OperationContract]
-        void SubscribeStationChange(string stationName);
+        void SubscribeStationChanged(string stationName, string cityName, int timeInSeconds);
     }
 }

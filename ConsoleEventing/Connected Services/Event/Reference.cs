@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsoleEventing.EventService {
+namespace ConsoleEventing.Event {
     using System.Runtime.Serialization;
     using System;
     
@@ -91,30 +91,30 @@ namespace ConsoleEventing.EventService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EventService.IVelibService", CallbackContract=typeof(ConsoleEventing.EventService.IVelibServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Event.IVelibService", CallbackContract=typeof(ConsoleEventing.Event.IVelibServiceCallback))]
     public interface IVelibService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibService/SubscribeStationChange", ReplyAction="http://tempuri.org/IVelibService/SubscribeStationChangeResponse")]
-        void SubscribeStationChange(string stationName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibService/SubscribeStationChanged", ReplyAction="http://tempuri.org/IVelibService/SubscribeStationChangedResponse")]
+        void SubscribeStationChanged(string stationName, string cityName, int timeInSeconds);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibService/SubscribeStationChange", ReplyAction="http://tempuri.org/IVelibService/SubscribeStationChangeResponse")]
-        System.Threading.Tasks.Task SubscribeStationChangeAsync(string stationName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibService/SubscribeStationChanged", ReplyAction="http://tempuri.org/IVelibService/SubscribeStationChangedResponse")]
+        System.Threading.Tasks.Task SubscribeStationChangedAsync(string stationName, string cityName, int timeInSeconds);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IVelibServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IVelibService/StationChanged")]
-        void StationChanged(ConsoleEventing.EventService.Station station);
+        void StationChanged(ConsoleEventing.Event.Station station);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IVelibServiceChannel : ConsoleEventing.EventService.IVelibService, System.ServiceModel.IClientChannel {
+    public interface IVelibServiceChannel : ConsoleEventing.Event.IVelibService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class VelibServiceClient : System.ServiceModel.DuplexClientBase<ConsoleEventing.EventService.IVelibService>, ConsoleEventing.EventService.IVelibService {
+    public partial class VelibServiceClient : System.ServiceModel.DuplexClientBase<ConsoleEventing.Event.IVelibService>, ConsoleEventing.Event.IVelibService {
         
         public VelibServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -136,12 +136,12 @@ namespace ConsoleEventing.EventService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void SubscribeStationChange(string stationName) {
-            base.Channel.SubscribeStationChange(stationName);
+        public void SubscribeStationChanged(string stationName, string cityName, int timeInSeconds) {
+            base.Channel.SubscribeStationChanged(stationName, cityName, timeInSeconds);
         }
         
-        public System.Threading.Tasks.Task SubscribeStationChangeAsync(string stationName) {
-            return base.Channel.SubscribeStationChangeAsync(stationName);
+        public System.Threading.Tasks.Task SubscribeStationChangedAsync(string stationName, string cityName, int timeInSeconds) {
+            return base.Channel.SubscribeStationChangedAsync(stationName, cityName, timeInSeconds);
         }
     }
 }

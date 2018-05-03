@@ -1,13 +1,13 @@
 ﻿using System;
-using ConsoleEventing.EventService;
+using ConsoleEventing.Event;
 
 namespace ConsoleEventing
 {
-    public class EventCallback : EventService.IVelibServiceCallback
+    public class EventCallback : Event.IVelibServiceCallback
     {
         public void StationChanged(Station station)
         {
-            Console.WriteLine($"LOL station changed {station.name}");
+            Console.WriteLine($"station changed {station.name}");
         }
     }
 }

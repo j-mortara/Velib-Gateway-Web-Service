@@ -11,7 +11,7 @@ namespace Server
     public class Station
     {
         [DataMember] private string contract;
-        [DataMember] private string name;
+        [DataMember] public string name;
         [DataMember] public int nbAvailableBikes;
         public DateTime timestamp;
 

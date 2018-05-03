@@ -12,8 +12,8 @@ namespace ConsoleEventing
         static void Main(string[] args)
         {
             var instanceContext = new InstanceContext(new EventCallback());
-            var velibServiceClient = new EventService.VelibServiceClient(instanceContext);
-            velibServiceClient.SubscribeStationChange("Toulouse");
+            var velibServiceClient = new Event.VelibServiceClient(instanceContext);
+            velibServiceClient.SubscribeStationChanged("00029", "Nancy", 1);
             Console.ReadLine();
         }
     }
